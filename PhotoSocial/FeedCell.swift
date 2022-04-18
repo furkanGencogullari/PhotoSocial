@@ -8,7 +8,11 @@
 import UIKit
 
 class FeedCell: UITableViewCell {
-
+    @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userDescription: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
