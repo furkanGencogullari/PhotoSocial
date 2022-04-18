@@ -64,7 +64,28 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                     imageRef.downloadURL { url, error in
                         if error == nil {
                             let imageUrl = url?.absoluteString
-                            print(imageUrl)
+                            
+                            // C L O U D   F I R E S T O R E
+                            
+                            let firestorePost = [
+                                "imageUrl": imageUrl!,
+                                "postedBy": Auth.auth().currentUser!.email!,
+                                "description": self.descriptionTextView.text!,
+                                "date": FieldValue.serverTimestamp(),
+                                "likes": 0] as [String : Any]
+                            
+                            let db = Firestore.firestore()
+                            var ref: DocumentReference? = nil
+                            ref = db.collection("Posts").addDocument(data: firestorePost, completion: { error in
+                                if error != nil {
+                                    self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
+                                } else {
+                                    self.imageView.image = UIImage(named: "select-image")
+                                    self.descriptionTextView.text = "Enter your description"
+                                    self.tabBarController?.selectedIndex = 0
+                                }
+                            })
+                            
                         }
                     }
                     
