@@ -26,6 +26,7 @@ class FeedCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func likeButtonPressed(_ sender: Any) {
+        print("like pressed")
         let db = Firestore.firestore()
         
         if let likeCount = Int(likeCountLabel.text!){
