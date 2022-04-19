@@ -24,29 +24,21 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(gestureRecognizer)
-        
-        
-        
-        
     }
+    
     @objc func imagePressed () {
         let picker = UIImagePickerController ()
         picker.delegate = self
         picker.sourceType = .photoLibrary
         present(picker, animated: true)
         imageView.contentMode = .scaleAspectFit
-        
-        
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.originalImage] as? UIImage
         uploadButton.isHidden = false
         dismiss(animated: true)
-        
     }
-    
     
     @IBAction func uploadButtonPressed(_ sender: Any) {
         let storage = Storage.storage()
@@ -64,8 +56,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                     imageRef.downloadURL { url, error in
                         if error == nil {
                             let imageUrl = url?.absoluteString
-                            
-                            // C L O U D   F I R E S T O R E
                             
                             let firestorePost = [
                                 "imageUrl": imageUrl!,
@@ -88,14 +78,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                             
                         }
                     }
-                    
-                    
                 }
             }
         }
-        
-        
-        
     }
     
     func makeAlert (titleInput: String, messageInput: String) {
@@ -105,8 +90,4 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(alert, animated: true)
         
     }
-    
-
-  
-
 }

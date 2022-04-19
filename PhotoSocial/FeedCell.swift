@@ -25,6 +25,7 @@ class FeedCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     @IBAction func likeButtonPressed(_ sender: Any) {
         print("like pressed")
         let db = Firestore.firestore()
@@ -34,9 +35,6 @@ class FeedCell: UITableViewCell {
             let likeStore = ["likes" : likeCount + 1] as [String : Any]
             db.collection("Posts").document(documentIdLabel.text!).setData(likeStore, merge: true)
         }
-        
-        
-        
     }
     
 }

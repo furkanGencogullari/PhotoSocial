@@ -98,6 +98,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3D-6f-vta">
                                 <rect key="frame" x="163" y="681" width="89" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="H96-su-KYr"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Logout">
                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
@@ -107,24 +110,36 @@
                                     <action selector="logout:" destination="gjI-qv-xNB" eventType="touchUpInside" id="vJG-YS-tEN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tetetest@tetete.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5V-4W-BT5">
+                                <rect key="frame" x="20" y="270" width="374" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="n98-kg-dTl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.47843137250000001" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mji-ex-hhC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="f3D-6f-vta" firstAttribute="top" secondItem="mji-ex-hhC" secondAttribute="top" constant="637" id="9yp-79-N8d"/>
-                            <constraint firstItem="mji-ex-hhC" firstAttribute="bottom" secondItem="f3D-6f-vta" secondAttribute="bottom" constant="98" id="iqq-aY-RoG"/>
-                            <constraint firstItem="f3D-6f-vta" firstAttribute="leading" secondItem="mji-ex-hhC" secondAttribute="leading" constant="163" id="nsU-oB-lNE"/>
-                            <constraint firstItem="f3D-6f-vta" firstAttribute="centerX" secondItem="wjc-sP-9WY" secondAttribute="centerX" id="pWB-k3-i56"/>
+                            <constraint firstItem="q5V-4W-BT5" firstAttribute="leading" secondItem="wjc-sP-9WY" secondAttribute="leadingMargin" id="B1Y-pE-EDo"/>
+                            <constraint firstItem="q5V-4W-BT5" firstAttribute="trailing" secondItem="wjc-sP-9WY" secondAttribute="trailingMargin" id="BAj-rS-P8Z"/>
+                            <constraint firstItem="q5V-4W-BT5" firstAttribute="top" secondItem="mji-ex-hhC" secondAttribute="top" constant="226" id="HYS-tA-j8G"/>
+                            <constraint firstItem="q5V-4W-BT5" firstAttribute="centerX" secondItem="f3D-6f-vta" secondAttribute="centerX" id="WLC-LA-qim"/>
+                            <constraint firstItem="f3D-6f-vta" firstAttribute="leading" secondItem="mji-ex-hhC" secondAttribute="leading" constant="163" id="dv6-qJ-86Z"/>
+                            <constraint firstItem="mji-ex-hhC" firstAttribute="bottom" secondItem="f3D-6f-vta" secondAttribute="bottom" constant="98" id="jcV-mH-jY9"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear.circle" catalog="system" id="EXC-cl-hwf"/>
                     <connections>
+                        <outlet property="userLabel" destination="q5V-4W-BT5" id="pvS-1l-gZX"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toVC" modalPresentationStyle="fullScreen" id="9Te-K7-8Q6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYh-d5-S4N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1837.68115942029" y="1107.5892857142856"/>
+            <point key="canvasLocation" x="1837.68115942029" y="1106.9196428571429"/>
         </scene>
         <!--Feed-->
         <scene sceneID="Euw-Bh-ct5">

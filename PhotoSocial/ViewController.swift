@@ -21,13 +21,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         let height = view.bounds.height
         let width = view.bounds.width
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
-        
         
         let blurEffect = UIBlurEffect(style: .systemThinMaterial)
         let visualEffectView = UIVisualEffectView(effect: blurEffect)
@@ -108,6 +105,7 @@ class ViewController: UIViewController {
         }
         
     }
+    
     @objc func signupPressed () {
         if emailTextField.text != "" && passwordTextField.text != "" {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authdata, error in
@@ -121,15 +119,12 @@ class ViewController: UIViewController {
             makeAlert(titleInput: "Error", messageInput: "Please enter username and password")
         }
     }
+    
     func makeAlert (titleInput : String, messageInput : String) {
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
         let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default)
         alert.addAction(okButton)
         self.present(alert, animated: true)
     }
-    
-    
-
-
 }
 
